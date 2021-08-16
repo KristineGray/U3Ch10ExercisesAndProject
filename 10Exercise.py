@@ -64,5 +64,14 @@ second_rectangle = make_rectangle(6, 2, '*')
 print(f'\nThe output for "make_rectangle(5, 3)" is:\n{first_rectangle}')
 print(f'\nThe output for "make_rectangle(2, 6, \'*\')" is:\n{second_rectangle}')
 
+def make_square(side, symbol='#'):
+    return make_rectangle(side, side, symbol)
+
+first_square = make_square(5)
+second_square = make_square(3, 'Racecar')
+
+print(f'\nThe output for "make_square(5)" is:\n{first_square}')
+print(f'\nThe output for "make_square(3, \'Racecar\')" is:\n{second_square}')
+
 part = '10.11.3. Bonus Exercises'
 print(line_start, part, line_end)
