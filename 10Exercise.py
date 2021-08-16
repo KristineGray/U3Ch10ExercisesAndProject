@@ -3,6 +3,7 @@
 line_start = '\n<--------'
 line_end = '-------->'
 
+
 part = '10.11.2. Part B: Return Values'
 print(line_start, part, line_end)
 
@@ -73,5 +74,40 @@ second_square = make_square(3, 'Racecar')
 print(f'\nThe output for "make_square(5)" is:\n{first_square}')
 print(f'\nThe output for "make_square(3, \'Racecar\')" is:\n{second_square}')
 
+
+
 part = '10.11.3. Bonus Exercises'
 print(line_start, part, line_end)
+
+def make_right_triangle(height, symbol='^'):
+    triangle_str = ''
+    for row in range(height):
+        if row == 0:
+            triangle_str = make_line(row + 1, symbol)
+        else:
+            triangle_str += '\n' + make_line(row + 1, symbol)
+    return triangle_str
+
+print(f'\nRight Triangles:\n{make_right_triangle(3)}')
+
+def make_iso_triangle(height, symbol='!'):
+    # triangle_str = ''
+    for row in range(height):
+        spaces = make_line(height - row - 1, ' ')
+        if row == 0:
+            triangle_str = spaces + make_line((row + 1) * 2, symbol) + spaces
+        else:
+            triangle_str += '\n' + spaces + make_line((row + 1) * 2, symbol) + spaces
+
+    return triangle_str
+
+print(f'\nIsoceles Triangles:\n{make_iso_triangle(5)}')
+
+def make_right_diamond_half(height, symbol='$'):
+    diamond_str = make_right_triangle(height // 2, symbol)
+    for row in range(height // 2, 0, -1):
+        diamond_str += '\n' + make_line(row, symbol)
+
+    return diamond_str
+
+print(f'\nHalf Diamond:\n{make_right_diamond_half(8)}')
