@@ -37,8 +37,32 @@ print(f'The average of {num_list_two} is {calculate_average(num_list_two)}')
 print(f'The average of {num_list_three} is {calculate_average(num_list_three)}')
 
 
-def make_line(num_chars, symbol):
-    
+def make_line(num_chars, symbol='#'):
+    line = ''
+    for num in range(num_chars):
+        line += symbol
+    return line
+
+first_line = make_line(5, 'T')
+second_line = make_line(8)
+
+print(f'\nThe output for "make_line(5, \'T\')" is:\n{first_line}')
+print(f'\nThe output for "make_line(8)" is:\n{second_line}')
+
+def make_rectangle(width, height, symbol='#'):
+    rectangle_string = ''
+    for row in range(height):
+        if row == 0:
+            rectangle_string = make_line(width, symbol)
+        else:
+            rectangle_string += '\n' + make_line(width, symbol)
+    return rectangle_string
+
+first_rectangle = make_rectangle(5, 3)
+second_rectangle = make_rectangle(6, 2, '*')
+
+print(f'\nThe output for "make_rectangle(5, 3)" is:\n{first_rectangle}')
+print(f'\nThe output for "make_rectangle(2, 6, \'*\')" is:\n{second_rectangle}')
 
 part = '10.11.3. Bonus Exercises'
 print(line_start, part, line_end)
